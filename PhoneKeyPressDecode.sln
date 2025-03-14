@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneKeyPressDecode", "PhoneKeyPressDecode\PhoneKeyPressDecode.csproj", "{A68BAA83-257A-456D-A4B9-2D4320D22D90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{24677693-66AD-44E9-8B20-7FF3AE2B8C41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D451C858-4EA4-40A5-93E4-3EB68F5B437A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{B863F090-2E6F-439A-A518-DF31CCCFED13}"
+	ProjectSection(SolutionItems) = preProject
+		Requirement.pdf = Requirement.pdf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A68BAA83-257A-456D-A4B9-2D4320D22D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A68BAA83-257A-456D-A4B9-2D4320D22D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A68BAA83-257A-456D-A4B9-2D4320D22D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A68BAA83-257A-456D-A4B9-2D4320D22D90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A68BAA83-257A-456D-A4B9-2D4320D22D90} = {24677693-66AD-44E9-8B20-7FF3AE2B8C41}
+	EndGlobalSection
+EndGlobal
