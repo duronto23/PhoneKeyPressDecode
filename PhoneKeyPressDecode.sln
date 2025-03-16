@@ -9,6 +9,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{B863F090-2E6F-439A-A518-DF31CCCFED13}"
 	ProjectSection(SolutionItems) = preProject
 		Requirement.pdf = Requirement.pdf
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneKeyPressDecode.Test", "PhoneKeyPressDecode.Test\PhoneKeyPressDecode.Test.csproj", "{13D055EA-7011-4C28-9FC3-EABC5C2BA60B}"

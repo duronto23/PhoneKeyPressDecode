@@ -35,8 +35,8 @@ public class OldPhoneKeyPressDecoderTest
     {
         // Act & Assert
         var ex = Assert.Throws<ArgumentException>(() => OldPhoneKeyPressDecoder.OldPhonePad(input));
-        Assert.That(ex != null);
-        Assert.That(!string.IsNullOrEmpty(ex?.Message));
+        Assert.That(ex, Is.Not.Null);
+        Assert.That(ex?.Message, Is.Not.Null);
         Assert.That(ex?.Message, Is.EqualTo(exceptionMessage));
     }
 }
