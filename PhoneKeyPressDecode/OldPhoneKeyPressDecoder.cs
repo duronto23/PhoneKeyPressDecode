@@ -5,6 +5,20 @@ namespace PhoneKeyPressDecode;
 
 public class OldPhoneKeyPressDecoder
 {
+    private static readonly Dictionary<char, string> DigitToCharacters = new Dictionary<char, string>
+    {
+        { '0', " " },
+        { '1', "!@#$%^&*-_=+\'\",.;:?<>\\/(){}[]" }, // Arbitrarily entered from keyboard, sequence might differ from original sequence in old phone.
+        { '2', "ABC" },
+        { '3', "DEF" },
+        { '4', "GHI" },
+        { '5', "JKL" },
+        { '6', "MNO" },
+        { '7', "PQRS" },
+        { '8', "TUV" },
+        { '9', "WXYZ" }
+    };
+    
     public static string OldPhonePad(string input) {
         if (string.IsNullOrEmpty(input))
         {
@@ -14,6 +28,12 @@ public class OldPhoneKeyPressDecoder
         {
             throw new ArgumentException("Input should ends with a #");
         }
+        
+        return GetDecodedMessage(input);
+    }
+
+    private static string GetDecodedMessage(string input)
+    {
         var stringBuilder = new StringBuilder();
         int start = 0, end = 0;
         while (!input[start].Equals('#'))
@@ -41,28 +61,12 @@ public class OldPhoneKeyPressDecoder
         return stringBuilder.ToString();
     }
 
-    private static char GetDecodedCharacter(char digit, int cnt)
+    private static char GetDecodedCharacter(char digit, int count)
     {
-        var characters = GetCharactersForDigit(digit);
-        var lettersIndex = (cnt - 1) % characters.Length;
-        return characters[lettersIndex];
-    }
-
-    private static string GetCharactersForDigit(char digit)
-    {
-        return digit switch
+        if (!DigitToCharacters.TryGetValue(digit, out var characters))
         {
-            '0' => " ",
-            '1' => "!@#$%^&*-_=+\'\",.;:?<>\\/(){}[]", // Arbitrarily entered from keyboard, sequence might differ from original sequence in old phone.
-            '2' => "ABC",
-            '3' => "DEF",
-            '4' => "GHI",
-            '5' => "JKL",
-            '6' => "MNO",
-            '7' => "PQRS",
-            '8' => "TUV",
-            '9' => "WXYZ",
-            _ => throw new ArgumentException("Digit expected!")
-        };
+            throw new ArgumentException("Digit expected!");
+        }
+        return characters[(count - 1) % characters.Length];
     }
 }

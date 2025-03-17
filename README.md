@@ -18,6 +18,8 @@ This is a static method as mentioned in the requirement document, takes a string
 ### Solution approach:
 I solved the problem by iterating through the given sequence of key presses until a `#` character is found. I used two pointers(`start` and `end`) to track consecutive presses of the same key and determined the corresponding character by counting the number of presses.
 
+* Once a `#` is found in the input, it is considered the end of the message. Any key presses after the `#` are not included in the message, as the message is sent upon pressing `#`.
+
 #### **Detailed explanation of the approach**, while iterating through the key press sequence:
 Initially, both the `start` and `end` pointers are set to the first index of the sequence.
 
@@ -40,9 +42,11 @@ Initially, both the `start` and `end` pointers are set to the first index of the
     - Takes a digit and the number of consecutive occurrences as parameters.
     - Returns the corresponding character based on the number of presses.
 
-2. **`GetCharactersForDigit`**:
-    - Takes a digit as a parameter and returns the set of characters assigned to that key on an old mobile keypad.
-    - Special characters for key `1` were added **arbitrarily**, as the exact sequence may vary across different old phone models.
+2. **`GetDecodedMessage`**:
+    - Takes a valid input and decodes it into the desired message by following the steps mentioned above.
+
+#### **Mapping Digits to Characters:**
+- A dictionary is used to efficiently store and retrieve the character mappings for phone keys (digits, `*`, and `#`).
 
 #### **Extension Methods in the `Extension` Class:**
 
@@ -55,6 +59,16 @@ The algorithm processes the key press sequence in a **single pass** using two po
 ### **Space Complexity:**
 Apart from the output string, no additional variable-length data structures are used, making the space complexity **O(1)** (excluding the output).
 
+
+## An alternative approach:
+_An alternative approach to implementing the solution is to use an outer loop to iterate over all characters in the input and an inner loop to count consecutive digits and determine their count._
+
+_The time and space complexity would be similar to the implemented approach. However, I chose to use a single loop with two pointers to keep the code simpler and more concise._
+
+## Improvement Thought:
+
+_Currently, the method is implemented as a static method, following the instructions in the requirement document. However, refactoring it into an async method would enhance concurrency support and improve performance in high-load scenarios._
+
 ---
 
 ## Testing
@@ -65,6 +79,7 @@ The `OldPhoneKeyPressDecoderTest` class includes test cases to validate the corr
 
 - **Valid cases**: Ensuring the expected message is correctly decoded from various key-press sequences.
 - **Invalid cases**: Handling edge cases where an exception is expected due to incorrect input.
+- **Edge Cases**: Ensuring the solution works for edge cases.
 
 ---
 ## How to run
